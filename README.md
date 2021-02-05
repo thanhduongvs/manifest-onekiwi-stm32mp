@@ -20,3 +20,8 @@ Documentation: Packages needed if you are going to build out the Yocto Project d
 - `DISTRO=openstlinux-weston MACHINE=kmtek source layers/meta-st/scripts/envsetup.sh build`
 - `bitbake kmtek-weston --runall=fetch` (download package)
 - `bitbake -k kmtek-weston` (build image)
+
+## Generate the SDK installation
+- `bitbake -c populate_sdk kmtek-weston`
+- `ls tmp-glibc/deploy/sdk/`
+- [How to create an SDK for OpenSTLinux distribution](https://wiki.st.com/stm32mpu/wiki/How_to_create_an_SDK_for_OpenSTLinux_distribution)

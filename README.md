@@ -11,12 +11,16 @@ Essentials: Packages needed to build an image on a headless system:
 Documentation: Packages needed if you are going to build out the Yocto Project documentation manuals:
 
      $ sudo apt-get install make xsltproc docbook-utils fop dblatex xmlto
-     
+## Install Repo
+- `mkdir ~/bin`
+- `curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo`
+- `chmod a+x ~/bin/repo`
+- 
 ## Build Yocto
 - `mkdir yocto-kmtek`
 - `cd yocto-kmtek`
-- `repo init -u https://github.com/thanhduongvs/manifest-kmtek-stm32mp.git -b dunfell`
-- `repo sync -j8`
+- `python3 ~/bin/repo ini init -u https://github.com/thanhduongvs/manifest-kmtek-stm32mp.git -b dunfell`
+- `python3 ~/bin/repo ini sync -j8`
 - `DISTRO=openstlinux-weston MACHINE=kmtek source layers/meta-st/scripts/envsetup.sh build`
 - `bitbake kmtek-weston --runall=fetch` (download package)
 - `bitbake -k kmtek-weston` (build image)
